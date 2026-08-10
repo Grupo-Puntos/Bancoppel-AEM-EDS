@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--bancopel-aem-eds--grupo-puntos.aem.page/
-- Live: https://main--bancopel-aem-eds--grupo-puntos.aem.live/
+- Preview: https://main--bancoppel-aem-eds--grupo-puntos.aem.page/
+- Live: https://main--bancoppel-aem-eds--grupo-puntos.aem.live/
 
 ## Documentation
 
