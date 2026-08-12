@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.bancoppel.com/main/index.html",
+  "path": "main/index",
+  "timestamp": "2026-08-11T21:44:02.616Z",
+  "title": "BanCoppel Banca por Internet| BanCoppel.com",
+  "template": "homepage",
+  "blocks": [
+    "carousel-hero",
+    "cards-quicklink",
+    "columns-promo",
+    "cards-feature",
+    "tabs-campaigns",
+    "columns-banner",
+    "cards-faq",
+    "columns-seo"
+  ]
+}

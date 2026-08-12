@@ -1,0 +1,64 @@
+/* columns-seo — footer-adjacent SEO link groupings.
+ * 6 themed groups (H5 subheading + link-rich paragraph) in two columns on
+ * desktop, stacked on mobile. Text-only, visually quiet/secondary.
+ * Values from source computed styles (see migration-work/columns-seo-extracted.css):
+ *   h5 16px/24px, p 16px/24px #4A4A4A, links #1C42E8 underlined,
+ *   24px between groupings, 8px between h5 and its paragraph.
+ */
+
+.columns-seo {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* row: mobile single column, groupings stacked */
+.columns-seo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* subheadings: quiet brand-navy labels, 24px above each grouping, 8px to paragraph */
+.columns-seo h5 {
+  margin: 24px 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--brand-navy);
+}
+
+.columns-seo > div > div > h5:first-child {
+  margin-top: 0;
+}
+
+.columns-seo p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* inline links: accent blue, underlined (matches source) */
+.columns-seo a:any-link {
+  color: var(--brand-accent);
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.columns-seo a:hover {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  .columns-seo > div {
+    flex-direction: row;
+    align-items: start;
+    column-gap: 24px;
+  }
+
+  .columns-seo > div > div {
+    flex: 1;
+  }
+}

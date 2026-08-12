@@ -1,0 +1,114 @@
+/* Block: cards-quicklink -- values extracted from source computed styles.
+ * Source tile (.card-icon): white card, border-radius 16px, padding 12px 24px,
+ * flex row / align-items center / gap 12px, box-shadow rgba(25,75,123,.12) 0 4px 24px.
+ * Icon slot: circular (border-radius 50%). Label: h5 16px / 500 / 22px / #4a4a4a.
+ */
+
+.cards-quicklink {
+  margin-top: 16px;
+}
+
+/* Row of tiles. Mobile-first: horizontal scroll (mirrors source swiper). */
+.cards-quicklink > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards-quicklink > ul > li {
+  flex: 0 0 auto;
+  width: 78%;
+  max-width: 260px;
+  scroll-snap-align: start;
+}
+
+/* The whole tile is one clickable card. */
+.cards-quicklink .cards-quicklink-link {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  padding: 12px 24px;
+  background-color: var(--background-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgb(25 75 123 / 12%);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cards-quicklink .cards-quicklink-link:hover,
+.cards-quicklink .cards-quicklink-link:focus-visible {
+  color: var(--text-color);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgb(25 75 123 / 20%);
+}
+
+/* Icon slot -- reserved even when the icon image was stripped on import. */
+.cards-quicklink .cards-quicklink-card-image {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--light-blue);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards-quicklink .cards-quicklink-card-image picture,
+.cards-quicklink .cards-quicklink-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Label */
+.cards-quicklink .cards-quicklink-card-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cards-quicklink .cards-quicklink-card-body h5 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--text-color);
+  text-align: left;
+}
+
+/* Tablet: 3 tiles per row, no scroll. */
+@media (width >= 600px) {
+  .cards-quicklink > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .cards-quicklink > ul > li {
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* Desktop: all 5 tiles in a single row. */
+@media (width >= 900px) {
+  .cards-quicklink {
+    margin-top: 24px;
+  }
+
+  .cards-quicklink > ul {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

@@ -1,0 +1,299 @@
+/* Block: carousel-hero — full-width rotating hero banner
+ * Design migrated from bancoppel.com (section.section-hero-home .swiper-hero,
+ * source slide = .hero.hero-full.azul300). All colors/sizes are from the
+ * source computed styles. Mobile-first; layout switches to side-by-side at 900px.
+ * Content images were stripped on import, so image cells may be empty — the
+ * cell renders an on-brand placeholder panel and also frames a real
+ * <picture>/<img> when present in future.
+ */
+
+/* Full-width breakout: escape the section's 1200px / 32px wrapper */
+.carousel-hero-wrapper {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-hero {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-hero .carousel-hero-slides-container {
+  position: relative;
+}
+
+.carousel-hero .carousel-hero-slides,
+.carousel-hero .carousel-hero-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-hero .carousel-hero-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-hero .carousel-hero-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Slide --- */
+.carousel-hero .carousel-hero-slide {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--brand-primary); /* #05297a — source .azul300 */
+  color: #fff;
+}
+
+/* --- Image cell: top on mobile, right on desktop.
+ * Empty cell = graceful on-brand placeholder panel. --- */
+.carousel-hero .carousel-hero-slide-image {
+  position: relative;
+  order: 1;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0 0 40px 40px;
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-primary) 100%);
+}
+
+/* decorateMain() wraps a bare <picture> in a <p>; neutralize it so a future
+ * real image still fills the panel edge-to-edge. */
+.carousel-hero .carousel-hero-slide-image p {
+  margin: 0;
+  height: 100%;
+}
+
+.carousel-hero .carousel-hero-slide-image picture,
+.carousel-hero .carousel-hero-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Text/content cell --- */
+.carousel-hero .carousel-hero-slide-content {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px 24px 72px;
+  color: #fff;
+}
+
+.carousel-hero .carousel-hero-slide-content h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  color: #fff;
+}
+
+/* yellow accent underline under the heading (source h2::after) */
+.carousel-hero .carousel-hero-slide-content h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 8px;
+  margin-top: 20px;
+  border-radius: 4px;
+  background-color: #ffdd35;
+}
+
+.carousel-hero .carousel-hero-slide-content p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #fff;
+}
+
+/* --- CTA button ---
+ * carousel-hero.js lifts the authored <p><a> into a standalone .button link.
+ * White pill with navy label on the blue slide (source .btn.secundario). --- */
+main .carousel-hero .carousel-hero-slide-content a.button:any-link {
+  align-self: stretch;
+  margin: 0;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  padding: 12px 32px;
+  background-color: #fff;
+  color: var(--brand-navy); /* #081754 */
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+main .carousel-hero .carousel-hero-slide-content a.button:any-link:hover,
+main .carousel-hero .carousel-hero-slide-content a.button:any-link:focus-visible {
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* --- Pagination dots (overlaid, bottom center) --- */
+.carousel-hero .carousel-hero-slide-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button:disabled,
+.carousel-hero .carousel-hero-slide-indicator button:hover,
+.carousel-hero .carousel-hero-slide-indicator button:focus-visible {
+  opacity: 1;
+}
+
+/* --- Prev/next arrows (desktop only; source hides them on mobile) --- */
+.carousel-hero .carousel-hero-navigation-buttons {
+  display: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-hero .carousel-hero-navigation-buttons button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--brand-primary);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  transition: background-color 0.2s;
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button:hover,
+.carousel-hero .carousel-hero-navigation-buttons button:focus-visible {
+  background-color: var(--light-blue);
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  width: 11px;
+  height: 11px;
+  border: 3px solid;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button.slide-next::after {
+  left: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* --- Tablet: scale hero typography --- */
+@media (width >= 600px) {
+  .carousel-hero .carousel-hero-slide-content {
+    padding: 40px 40px 80px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content h2 {
+    font-size: 44px;
+    line-height: 52px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content p {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+/* --- Desktop: text left, image right --- */
+@media (width >= 900px) {
+  .carousel-hero .carousel-hero-slide {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 480px;
+  }
+
+  .carousel-hero .carousel-hero-slide-image {
+    order: 2;
+    flex: 0 0 40%;
+    aspect-ratio: auto;
+    border-radius: 40px 0 0 40px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content {
+    order: 1;
+    flex: 1 1 auto;
+    gap: 24px;
+    padding: 48px clamp(40px, 6vw, 96px) 48px clamp(40px, 10vw, 160px);
+  }
+
+  .carousel-hero .carousel-hero-slide-content h2 {
+    font-size: 56px;
+    line-height: 64px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content h2::after {
+    margin-top: 24px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content p {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  main .carousel-hero .carousel-hero-slide-content a.button:any-link {
+    align-self: flex-start;
+    min-width: 160px;
+  }
+
+  .carousel-hero .carousel-hero-slide-indicators {
+    bottom: 32px;
+  }
+
+  .carousel-hero .carousel-hero-navigation-buttons {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: clamp(16px, 2.5vw, 48px);
+    left: clamp(16px, 2.5vw, 48px);
+    z-index: 3;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .carousel-hero .carousel-hero-navigation-buttons button {
+    pointer-events: auto;
+  }
+}

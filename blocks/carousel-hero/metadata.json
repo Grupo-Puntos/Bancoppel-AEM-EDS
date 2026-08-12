@@ -1,0 +1,41 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-08-11T20:57:17.682Z",
+  "sourceContext": {
+    "originUrl": "https://www.bancoppel.com/main/index.html",
+    "originPage": "BanCoppel homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero banners",
+      "full-width rotating promotional banners",
+      "multi-slide marketing headers"
+    ],
+    "notSuitableFor": [
+      "single static banners (use hero)",
+      "small inline image galleries",
+      "content that must all be visible at once"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/main/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-11T20:57:17.682Z"
+  }
+}

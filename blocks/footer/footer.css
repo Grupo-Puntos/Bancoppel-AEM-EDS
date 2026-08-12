@@ -1,20 +1,229 @@
+/*
+ * BanCoppel footer
+ * Deep-blue, full-width footer with white/light text, multi-column link area
+ * and a darker legal band at the bottom.
+ *
+ * The footer CONTENT (columns, links, copyright) is authored in the /footer
+ * document and flows through decorateMain()/loadSections(), so it renders as
+ * `.footer.block > div > .section > (.default-content-wrapper | .columns-wrapper)`.
+ * These rules are structure-agnostic so they style whatever is authored:
+ *   - every section is deep blue with white text (base)
+ *   - the LAST section (when more than one exists) becomes the navy legal band
+ *   - a default-content section with several heading/list groups flows into
+ *     responsive columns on desktop; a `columns` block is also supported
+ * Colours/spacing are extracted from the source computed styles and mapped to
+ * the global brand tokens in styles/styles.css.
+ */
+
+/* full-width deep-blue footer */
 footer {
-  background-color: var(--light-color);
+  background-color: var(--brand-primary); /* #05297A */
+}
+
+footer .footer {
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+/* inner container: constrained + centered, comfortable padding (mobile first) */
+footer .footer > div {
+  --footer-pad-x: 24px;
+  --footer-pad-bottom: 32px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px var(--footer-pad-x) var(--footer-pad-bottom);
+}
+
+/* sections inside the footer inherit the blue background: strip section chrome */
+footer .footer .section {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+footer .footer .section > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* space consecutive sections apart */
+footer .footer .section + .section {
+  margin-top: 32px;
+}
+
+/* headings: white, semibold, tight (source: 16px / 500 / 24px line) */
+footer .footer h1,
+footer .footer h2,
+footer .footer h3,
+footer .footer h4,
+footer .footer h5,
+footer .footer h6 {
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+footer .footer h1,
+footer .footer h2 { font-size: var(--body-font-size-m); }
+
+footer .footer h3,
+footer .footer h4,
+footer .footer h5,
+footer .footer h6 { font-size: var(--body-font-size-s); }
+
+footer .footer p {
+  margin: 0 0 8px;
+}
+
+/* lists render as clean link stacks */
+footer .footer ul,
+footer .footer ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer li {
+  margin: 0 0 8px;
+  padding: 0;
+  line-height: 24px;
+}
+
+/*
+ * links: white on the blue background, hover to light-blue.
+ * These override the global a:any-link / a:hover rules (which use dark blue
+ * for hover and would be invisible here).
+ */
+footer .footer a:any-link {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+footer .footer a:hover,
+footer .footer a:focus-visible {
+  color: var(--light-blue); /* #D9E3F2 */
+  text-decoration: underline;
+}
+
+/* images (logo, app-store badges, trust logos) */
+footer .footer img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* social / icon links laid out in a comfortable row */
+footer .footer .icon {
+  height: 28px;
+  width: 28px;
+}
+
+footer .footer p .icon {
+  margin-right: 16px;
+}
+
+/*
+ * Legal band: the last footer section (only when more than one exists) gets
+ * the darker navy background with light-blue text (source: #081754 / #D9E3F2).
+ */
+footer .footer .section:last-child:not(:only-child) {
+  margin: 32px calc(-1 * var(--footer-pad-x)) calc(-1 * var(--footer-pad-bottom));
+  padding: 32px var(--footer-pad-x);
+  background-color: var(--brand-navy); /* #081754 */
+  color: var(--light-blue); /* #D9E3F2 */
   font-size: var(--body-font-size-xs);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer .section:last-child:not(:only-child) p,
+footer .footer .section:last-child:not(:only-child) li {
+  color: var(--light-blue);
+  font-size: var(--body-font-size-xs);
+  line-height: 22px;
 }
 
-footer .footer p {
-  margin: 0;
+footer .footer .section:last-child:not(:only-child) h1,
+footer .footer .section:last-child:not(:only-child) h2,
+footer .footer .section:last-child:not(:only-child) h3,
+footer .footer .section:last-child:not(:only-child) h4,
+footer .footer .section:last-child:not(:only-child) h5,
+footer .footer .section:last-child:not(:only-child) h6 {
+  color: var(--light-blue);
+  font-weight: 400;
 }
 
-@media (width >= 900px) {
+footer .footer .section:last-child:not(:only-child) a:any-link {
+  color: var(--light-blue);
+  text-decoration: underline;
+}
+
+footer .footer .section:last-child:not(:only-child) a:hover,
+footer .footer .section:last-child:not(:only-child) a:focus-visible {
+  color: #fff;
+}
+
+/* tablet+ */
+@media (width >= 600px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    --footer-pad-x: 32px;
+
+    padding-top: 48px;
+  }
+}
+
+/* desktop: multi-column link layout */
+@media (width >= 900px) {
+  /*
+   * default-content link columns: heading/list groups flow into balanced
+   * newspaper columns. Scoped to non-legal sections so the copyright /
+   * disclaimer band stays single-column.
+   */
+  footer .footer .section:not(:last-child) .default-content-wrapper,
+  footer .footer .section:only-child .default-content-wrapper:has(ul) {
+    column-count: 4;
+    column-gap: 32px;
+  }
+
+  footer .footer .default-content-wrapper h1,
+  footer .footer .default-content-wrapper h2,
+  footer .footer .default-content-wrapper h3,
+  footer .footer .default-content-wrapper h4,
+  footer .footer .default-content-wrapper h5,
+  footer .footer .default-content-wrapper h6 {
+    break-after: avoid;
+  }
+
+  footer .footer .default-content-wrapper ul,
+  footer .footer .default-content-wrapper ol,
+  footer .footer .default-content-wrapper p {
+    break-inside: avoid;
+  }
+
+  /* `columns` block authored inside the footer: even columns, top-aligned */
+  footer .footer .columns > div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  footer .footer .columns > div > div {
+    flex: 1;
+  }
+}
+
+/* wide desktop: a touch more breathing room */
+@media (width >= 1200px) {
+  footer .footer > div {
+    --footer-pad-bottom: 40px;
+
+    padding-top: 56px;
   }
 }
