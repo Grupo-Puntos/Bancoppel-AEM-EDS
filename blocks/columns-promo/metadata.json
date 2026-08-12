@@ -1,0 +1,41 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-11T20:57:17.682Z",
+  "sourceContext": {
+    "originUrl": "https://www.bancoppel.com/main/index.html",
+    "originPage": "BanCoppel homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "app-promo",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "media column (mockup + QR) + content column (card + link rows + disclaimer)",
+    "buttonCount": 1,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "app/product promo with media beside content",
+      "two-column marketing promos",
+      "download/QR promos"
+    ],
+    "notSuitableFor": [
+      "text-only two-column layouts",
+      "image-beside-heading banners",
+      "card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/main/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-11T20:57:17.682Z"
+  }
+}

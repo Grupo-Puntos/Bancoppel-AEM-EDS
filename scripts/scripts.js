@@ -143,6 +143,38 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies section metadata blocks as classes/data attributes on their section,
+ * then removes the block. This project's aem.js decorateSections does not
+ * process section-metadata, so we handle it here (a Section Metadata table with
+ * a `style` row like `grey` becomes `<div class="section grey">`).
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > .section .section-metadata').forEach((meta) => {
+    const section = meta.closest('.section');
+    const config = {};
+    meta.querySelectorAll(':scope > div').forEach((row) => {
+      const cols = [...row.children];
+      if (cols[1]) {
+        const key = cols[0].textContent.trim().toLowerCase();
+        const value = cols[1].textContent.trim();
+        config[key] = value;
+      }
+    });
+    Object.entries(config).forEach(([key, value]) => {
+      if (key === 'style') {
+        value.split(',').map((s) => s.trim()).filter(Boolean).forEach((s) => {
+          section.classList.add(s.toLowerCase().replace(/\s+/g, '-'));
+        });
+      } else {
+        section.dataset[key] = value;
+      }
+    });
+    meta.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +183,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

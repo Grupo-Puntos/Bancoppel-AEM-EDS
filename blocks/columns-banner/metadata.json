@@ -1,0 +1,41 @@
+{
+  "variantName": "columns-banner",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-11T20:57:17.682Z",
+  "sourceContext": {
+    "originUrl": "https://www.bancoppel.com/main/index.html",
+    "originPage": "BanCoppel homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "wide",
+    "purpose": "security-banner",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image column + heading + CTA link column",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "side-by-side image + heading + CTA banners",
+      "informational security/notice banners",
+      "two-column call-to-action strips"
+    ],
+    "notSuitableFor": [
+      "multi-row column content",
+      "text-heavy multi-column layouts",
+      "card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/main/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-11T20:57:17.682Z"
+  }
+}

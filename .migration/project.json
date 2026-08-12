@@ -1,0 +1,10 @@
+{
+  "type": "doc",
+  "sites": {
+    "bancoppel-aem-eds": {
+      "previewOrg": "grupo-puntos",
+      "previewSite": "bancoppel-aem-eds",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "variantName": "tabs-campaigns",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-08-11T20:57:17.682Z",
+  "sourceContext": {
+    "originUrl": "https://www.bancoppel.com/main/index.html",
+    "originPage": "BanCoppel homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "campaign-switcher",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "tab label + tab content (promo cards + link)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "promotions/campaigns switchers",
+      "grouped promotional panels",
+      "content that toggles between related sets"
+    ],
+    "notSuitableFor": [
+      "single non-tabbed content sets",
+      "FAQ accordions",
+      "primary page navigation"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/main/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-11T20:57:17.682Z"
+  }
+}
