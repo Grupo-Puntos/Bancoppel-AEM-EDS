@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--bancopel-aem-eds--grupo-puntos.aem.page/
-- Live: https://main--bancopel-aem-eds--grupo-puntos.aem.live/
+- Preview: https://main--bancoppel-aem-eds--grupo-puntos.aem.page/
+- Live: https://main--bancoppel-aem-eds--grupo-puntos.aem.live/
 
 ## Documentation
 
@@ -16,19 +16,19 @@ Before using the aem-boilerplate, we recommand you to go through the documentati
 ## Installation
 
 ```sh
-npm i
+pnpm i
 ```
 
 ## Linting
 
 ```sh
-npm run lint
+pnpm lint
 ```
 
 ## Local development
 
 1. Create a new repository based on the `aem-boilerplate` template
 1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
+1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `pnpm install -g @adobe/aem-cli`
 1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
 1. Open the `{repo}` directory in your favorite IDE and start coding :)
