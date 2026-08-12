@@ -12,5 +12,9 @@ helix-importer-ui
 !CLAUDE.md
 !AGENTS.md
 
-#NPM
+# NPM
 package-lock.json
+
+# Other
+.playwright-cli/
+.screenshots/
