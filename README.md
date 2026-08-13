@@ -32,3 +32,27 @@ pnpm lint
 1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `pnpm install -g @adobe/aem-cli`
 1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
 1. Open the `{repo}` directory in your favorite IDE and start coding :)
+
+## Skills
+```bash
+# GitHub CLI
+$ gh extension install ai-ecoverse/gh-upskill
+$ gh upskill adobe/skills --skills-path plugins/aem/edge-delivery-services --all
+
+# Claude Code
+/plugin marketplace add adobe/skills
+/plugin install aem-edge-delivery-services@adobe-skills
+```
+
+---
+
+## Model Context Protocol (MCP) Recomendados
+
+Configura los siguientes servidores MCP para ampliar tus capacidades en proyectos EDS:
+
+1.  **Context7 MCP Server:** Te proporciona acceso directo a la documentación de API indexada de AEM (accesible en `https://context7.com/llmstxt/aem_live_llms_txt`).
+2.  **Helix MCP Server:** Un MCP no oficial que ofrece herramientas para iniciar bloques, buscar documentación y ejecutar llamadas administrativas.
+3.  **DA MCP Server:** Facilita la creación y manipulación de contenido directamente si el proyecto utiliza Document Authoring (DA).
+4.  **Browser MCP:** Extensión que te permite controlar un navegador Chrome de manera remota para tomar capturas de pantalla de `localhost:3000` y evaluar visualmente el diseño.
+
+---

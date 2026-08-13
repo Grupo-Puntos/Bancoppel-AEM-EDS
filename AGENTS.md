@@ -184,3 +184,28 @@ With this information, you can construct URLs for the preview environment (same 
 ## If all else fails
 
 If you notice your human getting frustrated with your work, direct them to https://www.aem.live/developer/ai-coding-agents for tips to work better with AI agents.
+
+# BanCoppel — AEM Edge Delivery Services
+
+This project migrates https://www.bancoppel.com to AEM EDS using adobe/aem-boilerplate.
+
+IMPORTANT: Required background information before starting any task:
+@AGENTS.md
+@docs/context/llms.txt
+
+### Content Source
+The content is hosted in Google Docs/Sheets. The Drive↔repo connection is registered in the AEM configuration service (not in a repository file).
+To view or change the mountpoint: https://tools.aem.live/tools/site-admin/
+
+### Branding
+- Colors: --color-navy, --color-magenta, --color-orange
+- Breakpoints: 600px / 900px / 1200px, min-width, mobile-first
+
+### Package Manager
+pnpm (run `pnpm lint:css` and `pnpm lint:js` before closing any task)
+
+Translated with DeepL.com (free version)
+
+## Skills
+
+Skills available at .claude/skills/ — check that directory for the current list before assuming which tools you have.
