@@ -17,6 +17,7 @@
   --brand-navy: #081754;      /* h1 title color */
   --light-blue: #d9e3f2;      /* soft blue surfaces */
   --highlight-yellow: #ffec99;
+  --yellow-300: #ffdd35;
   --border-gray: #dedede;
 
   /* semantic colors */
@@ -43,6 +44,8 @@
   --heading-font-size-m: 18px;
   --heading-font-size-s: 16px;
   --heading-font-size-xs: 14px;
+
+  --heading-font-size-24px: 24px;
 
   /* nav height */
   --nav-height: 56px;
@@ -96,8 +99,8 @@ footer .footer[data-block-status="loaded"] {
 h1,
 h2,
 h3 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 0;
   font-family: var(--heading-font-family);
   font-weight: 500;
   line-height: 1.25;
@@ -118,7 +121,7 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
+h1 { font-size: var(--heading-font-size-24px); }
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
@@ -314,7 +317,7 @@ main > .section {
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 main > .section:first-of-type {
@@ -354,4 +357,21 @@ main .section.dark h6 {
 
 main .section.dark a:any-link {
   color: #fff;
+}
+
+main .section.title-underline h1 {
+  margin-bottom: 24px;
+  padding: 0 24px;
+  text-align: center;
+  place-items: center;
+}
+
+main .section.title-underline h1::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 8px;
+  margin-top: 12px;
+  border-radius: 10px;
+  background-color: #ffdd35;
 }
