@@ -1,1 +1,29 @@
 /* add global styles that can be loaded post LCP here */
+
+/* Section style: title-underline — decorative accent under the section heading */
+.section.title-underline {
+  text-align: center;
+}
+
+.section.title-underline > .default-content-wrapper > h1,
+.section.title-underline > .default-content-wrapper > h2,
+.section.title-underline > .default-content-wrapper > h3 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+}
+
+.section.title-underline > .default-content-wrapper > h1::after,
+.section.title-underline > .default-content-wrapper > h2::after,
+.section.title-underline > .default-content-wrapper > h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 4px;
+  background-color: var(--link-color);
+  border-radius: 2px;
+}

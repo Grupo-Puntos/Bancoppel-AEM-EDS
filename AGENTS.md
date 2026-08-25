@@ -158,6 +158,21 @@ With this information, you can construct URLs for the preview environment (same 
 
 ## Troubleshooting
 
+### Modernization Console shows "No pages found" / "No HTML files available. Ask to migrate a webpage"
+
+**Symptom:** The Experience Modernization Console preview panel is empty and displays "No pages found" or "No HTML files available. Ask to migrate a webpage", even though the site content is intact in the content source (da.live / Google Drive) and renders fine on the `.aem.page` preview.
+
+**Cause:** That panel lists the locally-imported HTML in this project's `content/` directory — **not** the `.aem.page` preview server. The `content/` folder is a local working copy of imported pages (`*.plain.html`) used by the migration tooling; it is **not** part of the standard EDS runtime and is **not** tracked in git. Any action that clears the working tree (e.g. a workspace reset) empties `content/`, so the console has nothing to list. This is unrelated to blocks, `fstab.yaml` (this is a Helix 5 project — there is no `fstab.yaml`), or the content source itself.
+
+**Automatic fix — when `content/` is empty but the site exists on `.aem.page`, repopulate it by re-importing rather than debugging the console:**
+
+1. Confirm the folder is actually empty: `ls -la content/`.
+2. Confirm the page exists upstream: `curl -s -o /dev/null -w "%{http_code}\n" https://main--{repo}--{owner}.aem.page/`.
+3. Re-run the migration/import to regenerate the HTML into `content/` (this recreates `content/*.plain.html`). If `tools/importer/import-<template>.js` and `tools/importer/parsers|transformers/` already exist, reuse them; otherwise regenerate the import infrastructure first.
+4. Verify: `ls -la content/` should now list the imported `*.plain.html` file(s), and the console panel should show the page(s).
+
+**Prevention:** `content/` is intentionally not committed. After any workspace reset, treat repopulating `content/` (re-import) as the first step before investigating the console further.
+
 ### Getting Help
 - Check [AEM Edge Delivery documentation](https://www.aem.live/docs/)
 - Review [Developer Tutorial](https://www.aem.live/developer/tutorial)
