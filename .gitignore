@@ -18,3 +18,6 @@ package-lock.json
 # Other
 .playwright-cli/
 .screenshots/
+
+# Migration tooling working files (local only)
+.migration/
